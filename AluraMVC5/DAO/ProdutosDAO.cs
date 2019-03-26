@@ -27,6 +27,11 @@ namespace AluraMVC5.DAO
             }
         }
 
+        public void DBInitialInsert()
+        {
+            throw new NotImplementedException();
+        }
+
         public Produto BuscaPorId(int id)
         {
             using (var contexto = new EstoqueContext())
