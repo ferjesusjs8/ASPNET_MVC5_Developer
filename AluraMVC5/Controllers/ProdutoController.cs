@@ -16,7 +16,10 @@ namespace AluraMVC5.Controllers
             ProdutosDAO produtosDao = new ProdutosDAO();
             IList<Produto> produtos = produtosDao.Lista();
             if (!produtos.Any())
+            {
                 produtosDao.DBInitialInsert();
+                produtos = produtosDao.Lista();
+            }
 
             ViewBag.Produtos = produtos;
             return View();

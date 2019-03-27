@@ -8,25 +8,28 @@
 <html>
 <head>
     <meta name="viewport" content="width=device-width" />
-    <title>Index</title>
+    <title>Index Produtos</title>
 </head>
 <body>
-    <table>
-        <thead>
+    <table class="table table-bordered">
+        <thead class="table-dark">
             <tr>
-                <th>Id</th>
-                <th>Nome</th>
-                <th>Quantidade</th>
+                <th scope="row"></th>
+                <th scope="col">Id</th>
+                <th scope="col">Nome</th>
+                <th scope="col">Quantidade</th>
             </tr>
         </thead>
         <tbody>
-            @foreach (var produto in ViewBag.Produto)
+            @foreach (var produto in ViewBag.Produtos)
             {
-                <tr>@produto.Id</tr>
-                <tr>@produto.Nome</tr>
-                <tr>@produto.Quantidade</tr>
+                <tr>
+                    <th scope="row">*</th>
+                    <td>@produto.Id</td>
+                    <td>@produto.Nome</td>
+                    <td>@produto.Quantidade</td>
+                </tr>
             }
-            <tr></tr>
         </tbody>
     </table>
 </body>

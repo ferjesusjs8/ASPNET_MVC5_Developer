@@ -1,0 +1,30 @@
+[
+    {
+        "Nome": "Fantastic Beasts And Where To Find Them",
+        "Preco": 44.99,
+        "CategoriaId": 1,
+        "Descricao": "Wizardling World of Harry Potter Series",
+		    "Quantidade": 10
+    },
+    {
+        "Nome": "Resident Evil 2 Remake",
+        "Preco": 49.99,
+        "CategoriaId": 2,
+        "Descricao": "For Xbox One S",
+		    "Quantidade": 20
+    },
+    {
+        "Nome": "Nintendo Switch Zelda Special Edition",
+        "Preco": 199.99,
+        "CategoriaId": 2,
+        "Descricao": "Console Nintendo Swith w 2 Controllers plus Zelda Game",
+		    "Quantidade": 5
+    },
+    {
+        "Nome": "Xbox One X Minecraft Edition",
+        "Preco": 299.99,
+        "CategoriaId": 2,
+        "Descricao": "Console And A Minecraft Game With 2x Custom Controllers",
+		    "Quantidade": 10
+    }
+]

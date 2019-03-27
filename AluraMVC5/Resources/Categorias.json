@@ -1,0 +1,14 @@
+[
+    {
+        "Nome": "Books",
+        "Descricao": "Books"
+    },
+    {
+        "Nome": "Games",
+        "Descricao": "Games and Consoles"
+    },
+    {
+        "Nome": "Electronics",
+        "Descricao": "Electronics"
+    }
+]

@@ -25,7 +25,7 @@ namespace AluraMVC5.DAO
             }
         }
 
-        public CategoriaDoProduto BuscaPorId(int id)
+        public static CategoriaDoProduto BuscaPorId(int id)
         {
             using (var contexto = new EstoqueContext())
             {
