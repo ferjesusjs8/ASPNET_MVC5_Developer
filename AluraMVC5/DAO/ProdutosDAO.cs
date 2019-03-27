@@ -30,7 +30,7 @@ namespace AluraMVC5.DAO
             }
         }
 
-        public void DBInitialInsert()
+        public static void DBInitialInsert()
         {
             string[] files = Directory.GetFiles(AppDomain.CurrentDomain.BaseDirectory + @"\Resources\", "*.json");
             List<Usuario> usuarios = LeitorJson<Usuario>.LerJson(files[2]);

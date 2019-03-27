@@ -8,20 +8,21 @@ using System.Web.Mvc;
 
 namespace AluraMVC5.Controllers
 {
-    public class ProdutoController : Controller
+    public class CategoriaController : Controller
     {
-        // GET: Produto
+        // GET: Categoria
         public ActionResult Index()
         {
-            ProdutosDAO produtosDao = new ProdutosDAO();
-            IList<Produto> produtos = produtosDao.Lista();
-            if (!produtos.Any())
+            CategoriasDAO categoriasDAO = new CategoriasDAO();
+            IList<CategoriaDoProduto> categorias = categoriasDAO.Lista();
+
+            if (!categorias.Any())
             {
                 ProdutosDAO.DBInitialInsert();
-                produtos = produtosDao.Lista();
+                categorias = categoriasDAO.Lista();
             }
 
-            ViewBag.Produtos = produtos;
+            ViewBag.Categorias = categorias;
             return View();
         }
     }
