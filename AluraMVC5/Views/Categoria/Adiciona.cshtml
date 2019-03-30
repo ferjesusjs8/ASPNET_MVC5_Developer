@@ -1,0 +1,32 @@
+﻿
+@{
+    Layout = null;
+}
+
+<!DOCTYPE html>
+
+<html>
+<head>
+    <meta name="viewport" content="width=device-width" />
+    <title>Adiciona</title>
+</head>
+<body>
+
+    <form action="/Categoria/Add" method="post">
+
+        <div class="form-group">
+            <label for="nome">Nome:</label>
+            <input type="text" class="form-control" id="nome" name="categoria.Nome" aria-describedby="nameHelp" placeholder="Digite o Nome da Categoria">
+        </div>
+
+        <div class="form-group">
+            <label for="descricao">Descricao:</label>
+            <input type="text" class="form-control" id="descricao" name="categoria.Descricao" aria-describedby="descricaoHelp" placeholder="Digite a Descrição da Categoria">
+        </div>
+
+        <button type="submit" class="btn btn-primary">Submit</button>
+
+    </form>
+
+</body>
+</html>

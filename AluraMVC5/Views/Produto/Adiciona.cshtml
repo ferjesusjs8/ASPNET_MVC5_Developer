@@ -1,0 +1,54 @@
+﻿
+@{
+    Layout = null;
+}
+
+<!DOCTYPE html>
+
+<html>
+<head>
+    <meta name="viewport" content="width=device-width" />
+    <title>Add</title>
+</head>
+<body>
+
+    <form action="/Produto/Add" method="post">
+
+        <div class="form-group">
+            <label for="nome">Nome:</label>
+            <input type="text" class="form-control" id="nome" name="produto.Nome" aria-describedby="nameHelp" placeholder="Enter Product Name">
+        </div>
+
+        <div class="form-group">
+            <label for="preco">Preco:</label>
+            <input type="text" class="form-control" id="preco" name="produto.Preco" aria-describedby="precoHelp" placeholder="Enter Produtc Price">
+        </div>
+
+        <div class="form-group">
+            <label for="descricao">Descricao:</label>
+            <input type="text" class="form-control" id="descricao" name="produto.Descricao" aria-describedby="descricaoHelp" placeholder="Enter Product Description">
+        </div>
+
+        <div class="form-group">
+            <label for="quantidade">Quantidade:</label>
+            <input type="text" class="form-control" id="quantidade" name="produto.Quantidade" aria-describedby="quantidadeHelp" placeholder="Enter Product Amount">
+        </div>
+
+        <div class="form-group">
+            <label for="categoria">Categoria</label>
+            <select class="form-control" id="categoria" name="produto.CategoriaId" >
+
+                @foreach (var categoria in ViewBag.Categorias)
+                {
+                    <option value="@categoria.Id">@categoria.Nome</option>
+                }
+
+            </select>
+        </div>
+
+
+        <button type="submit" class="btn btn-primary">Submit</button>
+    </form>
+
+</body>
+</html>

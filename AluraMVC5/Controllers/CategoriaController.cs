@@ -17,13 +17,20 @@ namespace AluraMVC5.Controllers
             IList<CategoriaDoProduto> categorias = categoriasDAO.Lista();
 
             if (!categorias.Any())
-            {
-                ProdutosDAO.DBInitialInsert();
-                categorias = categoriasDAO.Lista();
-            }
+                return RedirectToAction("Adiciona", "Categoria");
 
             ViewBag.Categorias = categorias;
             return View();
+        }
+
+        public ActionResult Adiciona() => View();
+
+        [HttpPost]
+        public ActionResult Add(CategoriaDoProduto categoria)
+        {
+            CategoriasDAO categoriasDAO = new CategoriasDAO();
+            categoriasDAO.Adiciona(categoria);
+            return RedirectToAction("Index", "Categoria");
         }
     }
 }

@@ -13,5 +13,10 @@ namespace AluraMVC5.Controllers
         {
             return View();
         }
+
+        public ActionResult Redirect(string url)
+        {
+            return RedirectToAction("Index", url);
+        }
     }
 }

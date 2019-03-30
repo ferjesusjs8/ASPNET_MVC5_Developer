@@ -25,12 +25,15 @@ namespace AluraMVC5.DAO
             }
         }
 
-        public static CategoriaDoProduto BuscaPorId(int id)
+        public static CategoriaDoProduto BuscaPorId(int? id)
         {
-            using (var contexto = new EstoqueContext())
-            {
-                return contexto.Categorias.Find(id);
-            }
+            if (id.HasValue)
+                using (var contexto = new EstoqueContext())
+                {
+                    return contexto.Categorias.Find(id);
+                }
+            else
+                throw new ArgumentException("Id Inválido para categoria.");
         }
 
         public void Atualiza(CategoriaDoProduto categoria)
