@@ -26,9 +26,11 @@ namespace AluraMVC5.Controllers
         {
             CategoriasDAO categoriaDao = new CategoriasDAO();
             IList<CategoriaDoProduto> categorias = categoriaDao.Lista();
+
             if (!categorias.Any())
                 return RedirectToAction("Adiciona", "Categoria");
 
+            ViewBag.Produto = new Produto();
             ViewBag.Categorias = categorias;
             return View();
         }
@@ -36,9 +38,23 @@ namespace AluraMVC5.Controllers
         [HttpPost]
         public ActionResult Add(Produto produto)
         {
-            ProdutosDAO produtosDao = new ProdutosDAO();
-            produtosDao.Adiciona(produto);
-            return RedirectToAction("Index", "Produto");
+            if (produto.Quantidade < 1)
+                ModelState.AddModelError("produto.Invalido", "Erro: Quantidade deve ser maior que zero");
+
+            if (ModelState.IsValid)
+            {
+                ProdutosDAO produtosDao = new ProdutosDAO();
+                produtosDao.Adiciona(produto);
+                return RedirectToAction("Index", "Produto");
+            }
+            else
+            {
+                CategoriasDAO categorias = new CategoriasDAO();
+                ViewBag.Produto = produto;
+                ViewBag.Categorias = categorias.Lista();
+                return View("Adiciona");
+            }
+            
         }
     }
 }
