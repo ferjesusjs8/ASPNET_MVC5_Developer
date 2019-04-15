@@ -1,43 +1,28 @@
 ﻿@model IList<AluraMVC5.Models.Produto>
 
-@{
-    Layout = null;
-}
-
-<!DOCTYPE html>
-
-<html>
-<head>
-    <meta name="viewport" content="width=device-width" />
-    <title>Index Produtos</title>
-</head>
-<body>
-    <table class="table table-bordered">
-        <thead class="table-dark">
+<table class="table table-hover table-striped table-bordered">
+    <thead class="table-dark">
+        <tr>
+            <th scope="row"></th>
+            <th scope="col">Id</th>
+            <th scope="col">Nome</th>
+            <th scope="col">Quantidade</th>
+            <th scope="col">Categoria</th>
+        </tr>
+    </thead>
+    <tbody>
+        @foreach (var produto in Model)
+        {
             <tr>
-                <th scope="row"></th>
-                <th scope="col">Id</th>
-                <th scope="col">Nome</th>
-                <th scope="col">Quantidade</th>
-                <th scope="col">Categoria</th>
+                <th scope="row">*</th>
+                <td>@produto.Id</td>
+                <td>@Html.RouteLink(@produto.Nome, "VisualizaProduto", new { id = produto.Id })</td>
+                <td>@produto.Quantidade</td>
+                <td>@produto.Categoria.Nome</td>
             </tr>
-        </thead>
-        <tbody>
-            @foreach (var produto in Model)
-            {
-                <tr>
-                    <th scope="row">*</th>
-                    <td>@produto.Id</td>
-                    <td>@Html.RouteLink(@produto.Nome, "VisualizaProduto", new { id = produto.Id })</td>
-                    <td>@produto.Quantidade</td>
-                    <td>@produto.Categoria.Nome</td>
-                </tr>
-            }
-        </tbody>
-    </table>
+        }
+    </tbody>
+</table>
 
-    <br />
-    @Html.RouteLink("Adicionar Novo Produto", "AdicionarProduto")
-
-</body>
-</html>
+<br />
+@Html.RouteLink("Adicionar Novo Produto", "AdicionarProduto")

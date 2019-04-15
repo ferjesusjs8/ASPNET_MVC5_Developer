@@ -1,28 +1,14 @@
 ﻿@model AluraMVC5.Models.Produto
 
-@{
-    Layout = null;
-}
+<h1>Detalhes @Model.Nome</h1>
+<div>
+    Id = @Model.Id <br />
+    Nome = @Model.Nome <br />
+    Quantidade = @Model.Quantidade <br />
+    Preço = @Model.Preco <br />
+    Descrição = @Model.Descricao <br />
+    Categoria = @Model.Categoria.Nome <br />
 
-<!DOCTYPE html>
-
-<html>
-<head>
-    <meta name="viewport" content="width=device-width" />
-    <title>Visualiza</title>
-</head>
-<body>
-    <h1>Detalhes @Model.Nome</h1>
-    <div>
-        Id = @Model.Id <br />
-        Nome = @Model.Nome <br />
-        Quantidade = @Model.Quantidade <br />
-        Preço = @Model.Preco <br />
-        Descrição = @Model.Descricao <br />
-        Categoria = @Model.Categoria.Nome <br />
-
-        <br />
-        @Html.RouteLink("Voltar para Lista de Produtos", "ListaProdutos")
-    </div>
-</body>
-</html>
+    <br />
+    @Html.RouteLink("Voltar para Lista de Produtos", "ListaProdutos")
+</div>
