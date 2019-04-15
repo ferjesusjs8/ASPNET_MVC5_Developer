@@ -10,7 +10,7 @@ namespace AluraMVC5.Controllers
 {
     public class ProdutoController : Controller
     {
-        // GET: Produto
+        [Route("produtos", Name = "ListaProdutos")]
         public ActionResult Index()
         {
             ProdutosDAO produtosDao = new ProdutosDAO();
@@ -18,10 +18,10 @@ namespace AluraMVC5.Controllers
             if (!produtos.Any())
                 return RedirectToAction("Adiciona", "Produto");
 
-            ViewBag.Produtos = produtos;
-            return View();
+            return View(produtos);
         }
 
+        [Route("produtos/adicionar", Name = "AdicionarProduto")]
         public ActionResult Adiciona()
         {
             CategoriasDAO categoriaDao = new CategoriasDAO();
@@ -54,7 +54,15 @@ namespace AluraMVC5.Controllers
                 ViewBag.Categorias = categorias.Lista();
                 return View("Adiciona");
             }
-            
+
+        }
+
+        [Route("produtos/{id}", Name = "VisualizaProduto")]
+        public ActionResult Visualiza(int id)
+        {
+            ProdutosDAO produtos = new ProdutosDAO();
+            var produto = produtos.BuscaPorId(id);
+            return View(produto);
         }
     }
 }
