@@ -1,4 +1,6 @@
-﻿@model IList<AluraMVC5.Models.Produto>
+﻿
+@model IList<AluraMVC5.Models.Produto>
+
 
 <table class="table table-hover table-striped table-bordered">
     <thead class="table-dark">
@@ -17,8 +19,9 @@
                 <th scope="row">*</th>
                 <td>@produto.Id</td>
                 <td>@Html.RouteLink(@produto.Nome, "VisualizaProduto", new { id = produto.Id })</td>
-                <td>@produto.Quantidade</td>
+                <td id="quantidade@(produto.Id)">@produto.Quantidade</td>
                 <td>@produto.Categoria.Nome</td>
+                <td><a href="#" class="btn btn-danger btn-sm" onclick="Decrementa(@produto.Id)">-</a></td>
             </tr>
         }
     </tbody>
@@ -26,3 +29,16 @@
 
 <br />
 @Html.RouteLink("Adicionar Novo Produto", "AdicionarProduto")
+
+<script type="text/javascript" src="~/Scripts/jquery-3.3.1.js"></script>
+<script type="text/javascript">
+    function Decrementa(produtoID) {
+        var url = "@Url.Action("DecrementaQuantidade", "Produto")";
+        $.post(url, { id: produtoID }, Atualiza);
+    }
+
+    function Atualiza(resposta) {
+        debugger;
+        $("#quantidade" + resposta.Id).html(resposta.Quantidade);
+    }
+</script>

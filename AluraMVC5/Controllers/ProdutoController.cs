@@ -64,5 +64,14 @@ namespace AluraMVC5.Controllers
             var produto = produtos.BuscaPorId(id);
             return View(produto);
         }
+
+        public ActionResult DecrementaQuantidade(int id)
+        {
+            ProdutosDAO produtos = new ProdutosDAO();
+            var produto = produtos.BuscaPorId(id);
+            produto.Quantidade--;
+            produtos.Atualiza(produto);
+            return Json(produto);
+        }
     }
 }
