@@ -1,0 +1,61 @@
+﻿
+<form action="/Usuario/Adiciona" method="post" id="formUsuario">
+
+    @Html.AntiForgeryToken()
+    
+    <div class="form-group">
+        <label style="color:red;">@ViewBag.Message</label>
+    </div>
+
+    <div class="form-group">
+        <label for="login">Login:*</label>
+        <input type="text" class="form-control" name="login" id="login" placeholder="Digite um Login.">
+    </div>
+
+    <div class="form-group">
+        <label for="email">Email:*</label>
+        <input type="email" class="form-control" name="email" id="email" placeholder="Digite um e-mail para cadastro.">
+    </div>
+
+    <div class="form-group">
+        <label for="senha">Senha:*</label>
+        <input type="password" class="form-control" name="senha" id="senha" placeholder="Digite a sua Senha.">
+    </div>
+
+    <div class="form-group">
+        <label for="senhaCheck">Repita a Senha:* </label>
+        <input type="password" class="form-control" name="senhaCheck" id="senhaCheck" placeholder="Redigite a sua Senha." onkeydown="limpar()">
+        <label class="invalid-feedback" id="senhaMessage" style="color:red;"></label>
+    </div>
+
+    <button type="submit" class="btn btn-primary" id="cadastrar">Cadastrar</button>
+</form>
+
+<script src="~/Scripts/jquery-3.3.1.js"></script>
+<script type="text/javascript">
+
+    var inputSenha = $("#senhaCheck");
+
+    $("#formUsuario").submit(function (e) {
+        debugger;
+
+        var labelSenha = $("#senhaMessage");
+        var senha = $("#senha").val();
+        var senhaValidar = $("#senhaCheck").val();
+
+        if (senha && senhaValidar) {
+            if (senha !== senhaValidar) {
+                labelSenha.text("As senhas não coincidem!");
+                e.preventDefault();
+                inputSenha.addClass("is-invalid");
+                inputSenha.focus();
+            }
+        }
+    });
+
+    function limpar() {
+        inputSenha.removeClass("is-invalid");
+        labelSenha.text("");
+    };
+
+</script>

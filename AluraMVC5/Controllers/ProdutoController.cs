@@ -1,13 +1,13 @@
 ﻿using AluraMVC5.DAO;
+using AluraMVC5.Filters;
 using AluraMVC5.Models;
-using System;
 using System.Collections.Generic;
 using System.Linq;
-using System.Web;
 using System.Web.Mvc;
 
 namespace AluraMVC5.Controllers
 {
+    [AutorizacaoFilter]
     public class ProdutoController : Controller
     {
         [Route("produtos", Name = "ListaProdutos")]
@@ -36,6 +36,7 @@ namespace AluraMVC5.Controllers
         }
 
         [HttpPost]
+        [ValidateAntiForgeryToken]
         public ActionResult Add(Produto produto)
         {
             if (produto.Quantidade < 1)

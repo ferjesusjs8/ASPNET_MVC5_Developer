@@ -1,6 +1,6 @@
 ﻿
 <form action="/Produto/Add" method="post">
-
+    @Html.AntiForgeryToken()
     @Html.ValidationMessage("produto.Invalido")
 
     <div class="form-group">

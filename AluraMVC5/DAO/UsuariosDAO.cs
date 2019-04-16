@@ -33,6 +33,14 @@ namespace AluraMVC5.DAO
             }
         }
 
+        public Usuario BuscaLogin(string login)
+        {
+            using (var contexto = new EstoqueContext())
+            {
+                return contexto.Usuarios.FirstOrDefault(user => user.Login == login);
+            }
+        }
+
         public void Atualiza(Usuario usuario)
         {
             using (var contexto = new EstoqueContext())
@@ -46,7 +54,7 @@ namespace AluraMVC5.DAO
         {
             using (var contexto = new EstoqueContext())
             {
-                return contexto.Usuarios.FirstOrDefault(u => u.Nome == login && u.Senha == senha);
+                return contexto.Usuarios.FirstOrDefault(u => u.Login == login && u.Senha == senha);
             }
         }
     }

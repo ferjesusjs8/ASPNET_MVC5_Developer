@@ -1,4 +1,5 @@
-﻿using System.Web;
+﻿using AluraMVC5.Filters;
+using System.Web;
 using System.Web.Mvc;
 
 namespace AluraMVC5
@@ -8,6 +9,7 @@ namespace AluraMVC5
         public static void RegisterGlobalFilters(GlobalFilterCollection filters)
         {
             filters.Add(new HandleErrorAttribute());
+            //filters.Add(new AutorizacaoFilterAttribute());
         }
     }
 }

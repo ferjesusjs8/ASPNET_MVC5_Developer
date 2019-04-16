@@ -1,6 +1,8 @@
 ﻿
 <form action="/Categoria/Add" method="post">
 
+    @Html.AntiForgeryToken()
+
     <div class="form-group">
         <label for="nome">Nome:</label>
         <input type="text" class="form-control" id="nome" name="categoria.Nome" aria-describedby="nameHelp" placeholder="Digite o Nome da Categoria">

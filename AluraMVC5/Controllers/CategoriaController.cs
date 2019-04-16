@@ -1,13 +1,13 @@
 ﻿using AluraMVC5.DAO;
+using AluraMVC5.Filters;
 using AluraMVC5.Models;
-using System;
 using System.Collections.Generic;
 using System.Linq;
-using System.Web;
 using System.Web.Mvc;
 
 namespace AluraMVC5.Controllers
 {
+    [AutorizacaoFilter]
     public class CategoriaController : Controller
     {
         // GET: Categoria
@@ -26,6 +26,7 @@ namespace AluraMVC5.Controllers
         public ActionResult Adiciona() => View();
 
         [HttpPost]
+        [ValidateAntiForgeryToken]
         public ActionResult Add(CategoriaDoProduto categoria)
         {
             CategoriasDAO categoriasDAO = new CategoriasDAO();
